@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/profile"
+        android:contentDescription="You can edit transaction"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="Edit Transaction"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/calender_view"
+        android:contentDescription="You can view calender "
+        android:icon="@drawable/ic_baseline_calendar_today_24"
+        android:title="calender Transaction"
+        app:showAsAction="ifRoom" />
+</menu>
