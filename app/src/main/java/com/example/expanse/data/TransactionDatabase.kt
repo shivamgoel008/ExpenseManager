@@ -16,12 +16,12 @@ abstract class TransactionDatabase : RoomDatabase() {
         private var instance: TransactionDatabase? = null
 
         fun getDatabase(context: Context) = instance
-            ?: synchronized(this) {
-                Room.databaseBuilder(
-                    context.applicationContext,
-                    TransactionDatabase::class.java,
-                    "transaction_database"
-                ).build().also { instance = it }
-            }
+                ?: synchronized(this) {
+                    Room.databaseBuilder(
+                            context.applicationContext,
+                            TransactionDatabase::class.java,
+                            "transaction_database"
+                    ).build().also { instance = it }
+                }
     }
 }

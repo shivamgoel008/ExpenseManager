@@ -8,7 +8,7 @@ import kotlinx.coroutines.launch
 
 class TransactionDetailViewModel(application: Application) : AndroidViewModel(application) {
     private val repo: TransactionDetailRepository =
-        TransactionDetailRepository(application)
+            TransactionDetailRepository(application)
 
     private val _transactionId = MutableLiveData<Long>(0)
 
@@ -16,9 +16,9 @@ class TransactionDetailViewModel(application: Application) : AndroidViewModel(ap
         get() = _transactionId
 
     val transaction: LiveData<Transaction> = Transformations
-        .switchMap(_transactionId) { id ->
-            repo.getTransaction(id)
-        }
+            .switchMap(_transactionId) { id ->
+                repo.getTransaction(id)
+            }
 
     fun setTransactionId(id: Long) {
         if (_transactionId.value != id) {

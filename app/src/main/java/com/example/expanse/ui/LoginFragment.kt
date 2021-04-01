@@ -23,18 +23,18 @@ class LoginFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
 
         sharedPreferences =
-            this.requireActivity().getSharedPreferences("login", Context.MODE_PRIVATE)
+                this.requireActivity().getSharedPreferences("login", Context.MODE_PRIVATE)
 
         val boarded: Boolean = sharedPreferences.getBoolean("isLogin", false)
 
         if (boarded) {
             findNavController().navigate(
-                LoginFragmentDirections.actionLoginFragmentToTransactionListFragment()
+                    LoginFragmentDirections.actionLoginFragmentToTransactionListFragment()
             )
         } else {
             sharedPreferences.edit().putBoolean("isLogin", true)
@@ -87,7 +87,7 @@ class LoginFragment : Fragment() {
 
             println("name = $name budget = $budget")
             findNavController().navigate(
-                LoginFragmentDirections.actionLoginFragmentToTransactionListFragment()
+                    LoginFragmentDirections.actionLoginFragmentToTransactionListFragment()
             )
         }
 

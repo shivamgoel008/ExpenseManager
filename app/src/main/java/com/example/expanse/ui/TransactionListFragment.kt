@@ -17,7 +17,6 @@ import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import kotlinx.android.synthetic.main.fragment_transaction_list.*
-import java.util.*
 
 
 class TransactionListFragment : Fragment() {
@@ -38,8 +37,8 @@ class TransactionListFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?,
     ): View? {
         return inflater.inflate(R.layout.fragment_transaction_list, container, false)
     }
@@ -52,22 +51,21 @@ class TransactionListFragment : Fragment() {
 /* when user clicks the transaction in recycler view then it will navigate to fragment with details of the transaction */
             adapter = TransactionAdapter {
                 findNavController().navigate(
-                    TransactionListFragmentDirections.actionTransactionListFragmentToTransactionDetailFragment(
-                        it,
-                    )
+                        TransactionListFragmentDirections.actionTransactionListFragmentToTransactionDetailFragment(
+                                it,
+                        )
                 )
             }
         }
 
 
-//        for pichart in the side of netbalance
 
 
 
 /* to update to net balace remaining after every addition in the recycler view  and always use this
  this method to update the shared preference rather then the method used in login fragment */
         val sharedPreferences: SharedPreferences =
-            this.requireActivity().getSharedPreferences("login", Context.MODE_PRIVATE)
+                this.requireActivity().getSharedPreferences("login", Context.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharedPreferences.edit()
         setNetBalance(sharedPreferences, editor)
 
@@ -101,9 +99,7 @@ class TransactionListFragment : Fragment() {
 
                 add_expanse -> {
                     findNavController().navigate(
-                        TransactionListFragmentDirections.actionTransactionListFragmentToTransactionDetailFragment(
-                            0
-                        )
+                            TransactionListFragmentDirections.actionTransactionListFragmentToTransactionDetailFragment(0)
                     )
                     true
                 }
@@ -130,36 +126,36 @@ class TransactionListFragment : Fragment() {
 
     }
 
-    private fun setupPieChart(){
+    private fun setupPieChart() {
 
         // setup Pie entries
         val pieEntries = arrayListOf<PieEntry>()
-        var first:Float=amount_remaining.text.toString().toFloat()
-        var second:Float=netCash.text.toString().toFloat()
-        var third:Float =netCredit.text.toString().toFloat()
-        var forth:Float = netDebit.text.toString().toFloat()
+        var first: Float = amount_remaining.text.toString().toFloat()
+        var second: Float = netCash.text.toString().toFloat()
+        var third: Float = netCredit.text.toString().toFloat()
+        var forth: Float = netDebit.text.toString().toFloat()
 
         pieEntries.add(PieEntry(first))
         pieEntries.add(PieEntry(second))
         pieEntries.add(PieEntry(third))
         pieEntries.add(PieEntry(forth))
 // setup Pie chart animations
-        pieChart.animateXY(1000,1000)
+        pieChart.animateXY(1000, 1000)
 
         // setup PieChart Entries Colors
-        val pieDataSet = PieDataSet(pieEntries,"This is Pie Chart Label")
+        val pieDataSet = PieDataSet(pieEntries, "This is Pie Chart Label")
         pieDataSet.setColors(
-            resources.getColor(R.color.R),
-            resources.getColor(R.color.Java),
-            resources.getColor(R.color.CPP),
-            resources.getColor(R.color.Python)
+                resources.getColor(R.color.R),
+                resources.getColor(R.color.Java),
+                resources.getColor(R.color.CPP),
+                resources.getColor(R.color.Python)
         )
 
         // setup pie data set in piedata
         val pieData = PieData(pieDataSet)
 
         // setip text in pieChart centre
-        pieChart.centerText="Expanses"
+        pieChart.centerText = "Expanses"
         pieChart.setCenterTextColor(resources.getColor(android.R.color.black))
         pieChart.setCenterTextSize(15f)
 
@@ -167,20 +163,20 @@ class TransactionListFragment : Fragment() {
         pieChart.legend.isEnabled = false
 
 //        now hide the description of piechart
-        pieChart.description.isEnabled=false
-        pieChart.description.text="Expanses"
+        pieChart.description.isEnabled = false
+        pieChart.description.text = "Expanses"
 
         pieChart.holeRadius = 40f
         // this enabled the values on each pieEntry
         pieData.setDrawValues(true)
 
-        pieChart.data= pieData
+        pieChart.data = pieData
     }
 
 
     private fun setNetBalance(
-        sharedPreferences: SharedPreferences,
-        editor: SharedPreferences.Editor
+            sharedPreferences: SharedPreferences,
+            editor: SharedPreferences.Editor
     ) {
 
 //        val sharedPreferences : SharedPreferences = this.requireActivity().getSharedPreferences("login", Context.MODE_PRIVATE)

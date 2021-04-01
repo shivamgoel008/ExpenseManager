@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 
 class TransactionListRepository(context: Application) {
     private val transactionListDao: TransactionListDao =
-        TransactionDatabase.getDatabase(context).transactionListDao()
+            TransactionDatabase.getDatabase(context).transactionListDao()
 
     fun getTransactions(): LiveData<List<Transaction>> {
         return transactionListDao.getAllTransaction()
@@ -19,15 +19,19 @@ class TransactionListRepository(context: Application) {
         return transactionListDao.getTransactionByDate(date)
     }
 
-    fun getAmountCash(): LiveData<Float>{
+    fun getAmountCash(): LiveData<Float> {
         return transactionListDao.getSumCash()
     }
 
-    fun getAmountCredit(): LiveData<Float>{
+    fun getAmountCredit(): LiveData<Float> {
         return transactionListDao.getSumCredit()
     }
 
-    fun getAmountDebit(): LiveData<Float>{
+    fun getAmountDebit(): LiveData<Float> {
         return transactionListDao.getSumDebit()
     }
+
+//    fun getTransactionsByMonth(date:String):LiveData<List<Transaction>>{
+//        return  transactionListDao.getTransactionByMonth(date)
+//    }
 }

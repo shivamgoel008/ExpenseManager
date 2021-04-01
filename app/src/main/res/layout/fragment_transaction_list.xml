@@ -133,10 +133,10 @@
                         android:id="@+id/netCash"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="00.0"
-                        android:textSize="16sp"
                         android:layout_marginLeft="16sp"
+                        android:text="00.0"
                         android:textColor="@color/teal_200"
+                        android:textSize="16sp"
                         app:layout_constraintBottom_toBottomOf="@+id/cash"
                         app:layout_constraintStart_toEndOf="@+id/cash"
                         app:layout_constraintTop_toTopOf="@+id/cash" />

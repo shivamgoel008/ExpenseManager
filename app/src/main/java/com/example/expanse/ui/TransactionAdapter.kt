@@ -14,14 +14,14 @@ import kotlinx.android.synthetic.main.list_item.view.*
 
 
 class TransactionAdapter(private val listener: (Long) -> Unit) :
-    ListAdapter<Transaction, TransactionAdapter.ViewHolder>(DiffCallback()) {
+        ListAdapter<Transaction, TransactionAdapter.ViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
+            parent: ViewGroup,
+            viewType: Int
     ): TransactionAdapter.ViewHolder {
         val itemLayout = LayoutInflater.from(parent.context)
-            .inflate(R.layout.list_item, parent, false)
+                .inflate(R.layout.list_item, parent, false)
         return ViewHolder(itemLayout)
     }
 
@@ -30,7 +30,7 @@ class TransactionAdapter(private val listener: (Long) -> Unit) :
     }
 
     inner class ViewHolder(override val containerView: View) :
-        RecyclerView.ViewHolder(containerView), LayoutContainer {
+            RecyclerView.ViewHolder(containerView), LayoutContainer {
         init {
             itemView.setOnClickListener {
                 listener.invoke(getItem(adapterPosition).id)

@@ -10,7 +10,7 @@ interface TransactionListDao {
     @Query("SELECT * FROM `transaction` WHERE date=:date")
     fun getTransactionByDate(date: String): LiveData<List<Transaction>>
 
-    @Query("Select * from `transaction` WHERE  date >= date('now') order by id ASC")
+    @Query("Select * from `transaction` WHERE  date >= date('now') order by date ASC")
     fun getAllTransaction(): LiveData<List<Transaction>>
 
     @Query("SELECT Sum(amount) FROM `transaction`")
@@ -24,4 +24,8 @@ interface TransactionListDao {
 
     @Query("SELECT Sum(amount) FROM `transaction` WHERE type = 2")
     fun getSumDebit(): LiveData<Float>
+
+    @Query("SELECT * FROM `transaction` WHERE month=:month")
+    fun getTransactionByMonth(month:String):LiveData<List<Transaction>>
+
 }

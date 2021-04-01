@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 
 class TransactionDetailRepository(context: Application) {
     private val transactionDetailDao: TransactionDetailDao =
-        TransactionDatabase.getDatabase(context).transactionDetailDao()
+            TransactionDatabase.getDatabase(context).transactionDetailDao()
 
     fun getTransaction(id: Long): LiveData<Transaction> {
         return transactionDetailDao.getTransaction(id)
