@@ -1,4 +1,4 @@
-package com.example.expanse.ui
+package com.example.expanse.ui.DayTransaction
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

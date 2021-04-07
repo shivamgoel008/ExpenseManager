@@ -1,4 +1,4 @@
-package com.example.expanse.ui
+package com.example.expanse.ui.TransactionDetails
 
 import android.app.DatePickerDialog
 import android.content.Context
@@ -30,8 +30,8 @@ class TransactionDetailFragment : Fragment() {
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?,
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?,
     ): View? {
 
 
@@ -72,7 +72,7 @@ class TransactionDetailFragment : Fragment() {
         TransactionType.values().forEach { properties.add(it.name) }
 
         val arrayAdapter =
-                ArrayAdapter(this.requireActivity(), android.R.layout.simple_spinner_item, properties)
+            ArrayAdapter(this.requireActivity(), android.R.layout.simple_spinner_item, properties)
         _type.adapter = arrayAdapter
 
         _type?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -80,7 +80,7 @@ class TransactionDetailFragment : Fragment() {
             }
 
             override fun onItemSelected(
-                    parent: AdapterView<*>?, view: View?, position: Int, id: Long,
+                parent: AdapterView<*>?, view: View?, position: Int, id: Long,
             ) {
             }
         }
@@ -137,7 +137,7 @@ class TransactionDetailFragment : Fragment() {
     }
 
     private fun setData(transaction: Transaction) {
-        TransactionName.editText?.setText(transaction.transactionName)
+        TransactionName.editText?.setText(transaction.name)
         etamount.editText?.setText(transaction.amount.toString())
         dateselect.editText?.setText(transaction.date)
         fromdate.editText?.setText(transaction.fromDate)
@@ -170,17 +170,19 @@ class TransactionDetailFragment : Fragment() {
 //            sharedPreferences.edit().putString("Budget", value.toString()).apply()
 
         val transaction = Transaction(
-                viewModel.transactionId.value!!,
-                transactionName,
-                amount.toFloat(),
-                selectDate,
-                fromDate,
-                toDate,
-                selectDate.substring(3,5),
-                category,
-                type,
-                comment,
-                1
+            viewModel.transactionId.value!!,
+            transactionName,
+            amount.toFloat(),
+            selectDate,
+            fromDate,
+            toDate,
+            (selectDate.substring(0, 4)+selectDate.substring(5,7)).toLong(),
+            selectDate.substring(5,7).toInt(),
+            selectDate.substring(0,4).toInt(),
+            category,
+            type,
+            comment,
+            1
         )
         viewModel.saveTransaction(transaction)
         this.requireActivity().onBackPressed()
@@ -210,17 +212,19 @@ class TransactionDetailFragment : Fragment() {
 
         val vary: Float = amount.toFloat() * (-1)
         val transaction = Transaction(
-                viewModel.transactionId.value!!,
-                transactionName,
-                vary,
-                selectDate,
-                fromDate,
-                toDate,
-                selectDate.substring(3,5),
-                category,
-                type,
-                comment,
-                0
+            viewModel.transactionId.value!!,
+            transactionName,
+            vary,
+            selectDate,
+            fromDate,
+            toDate,
+            (selectDate.substring(0, 4)+selectDate.substring(5,7)).toLong(),
+            selectDate.substring(5,7).toInt(),
+            selectDate.substring(0,4).toInt(),
+            category,
+            type,
+            comment,
+            0
         )
 
         viewModel.saveTransaction(transaction)
@@ -266,19 +270,19 @@ class TransactionDetailFragment : Fragment() {
 
         val myCalendar = Calendar.getInstance()
         val datePickerOnDataSetListener =
-                DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
-                    myCalendar.set(Calendar.YEAR, year)
-                    myCalendar.set(Calendar.MONTH, monthOfYear)
-                    myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-                    val sdf = SimpleDateFormat(format, Locale.UK)
-                    setText(sdf.format(myCalendar.time))
-                }
+            DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
+                myCalendar.set(Calendar.YEAR, year)
+                myCalendar.set(Calendar.MONTH, monthOfYear)
+                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+                val sdf = SimpleDateFormat(format, Locale.UK)
+                setText(sdf.format(myCalendar.time))
+            }
 
         setOnClickListener {
             DatePickerDialog(
-                    context, datePickerOnDataSetListener, myCalendar
+                context, datePickerOnDataSetListener, myCalendar
                     .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
-                    myCalendar.get(Calendar.DAY_OF_MONTH)
+                myCalendar.get(Calendar.DAY_OF_MONTH)
             ).run {
 //                maxDate?.time?.also { datePicker.maxDate = it }
                 show()

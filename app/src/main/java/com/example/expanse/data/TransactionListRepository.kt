@@ -31,7 +31,7 @@ class TransactionListRepository(context: Application) {
         return transactionListDao.getSumDebit()
     }
 
-//    fun getTransactionsByMonth(date:String):LiveData<List<Transaction>>{
-//        return  transactionListDao.getTransactionByMonth(date)
-//    }
+    fun getTransactionMonth(): LiveData<List<MonthlyTransactions>>{
+        return transactionListDao.getTransactionMonth()
+    }
 }

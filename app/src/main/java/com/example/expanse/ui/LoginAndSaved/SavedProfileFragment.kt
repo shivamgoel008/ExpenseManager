@@ -1,4 +1,4 @@
-package com.example.expanse.ui
+package com.example.expanse.ui.LoginAndSaved
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -18,8 +18,8 @@ class SavedProfileFragment : Fragment() {
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_saved_profile, container, false)
@@ -33,7 +33,7 @@ class SavedProfileFragment : Fragment() {
 
 //         putting the values login in the saved details
         val sharedPreferences: SharedPreferences =
-                this.requireActivity().getSharedPreferences("login", Context.MODE_PRIVATE)
+            this.requireActivity().getSharedPreferences("login", Context.MODE_PRIVATE)
 
         val tempName = sharedPreferences.getString("Name", "Shivam")
         val tempBudget = sharedPreferences.getString("Budget", "1000")
@@ -63,14 +63,14 @@ class SavedProfileFragment : Fragment() {
                     saveButton.setOnClickListener {
 
                         sharedPreferences.edit()
-                                .putString("Name", name_saved.editText?.text.toString()).apply()
+                            .putString("Name", name_saved.editText?.text.toString()).apply()
                         sharedPreferences.edit()
-                                .putString("Budget", budget_saved.editText?.text.toString()).apply()
+                            .putString("Budget", budget_saved.editText?.text.toString()).apply()
                         sharedPreferences.edit()
-                                .putString("Income", income_saved.editText?.text.toString()).apply()
+                            .putString("Income", income_saved.editText?.text.toString()).apply()
 
                         findNavController().navigate(
-                                SavedProfileFragmentDirections.actionSavedProfileFragmentToTransactionListFragment()
+                            SavedProfileFragmentDirections.actionSavedProfileFragmentToTransactionListFragment()
                         )
                     }
                     true

@@ -1,4 +1,4 @@
-package com.example.expanse.ui
+package com.example.expanse.ui.DayTransaction
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -46,9 +46,9 @@ class DayTransactionFragment : Fragment() {
             val date: String
 
             if (month < 10) {
-                date = "$i2/0$month/$i"
+                date = "$i-0$month-$i2"
             } else {
-                date = "$i2/$month/$i"
+                date = "$i-$month-$i2"
             }
             viewModel.setDate(date)
             val mon = month(month)

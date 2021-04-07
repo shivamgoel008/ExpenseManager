@@ -8,15 +8,17 @@ import android.view.ViewGroup
 import com.example.expanse.R
 
 
-class MonthlyListFragment : Fragment() {
+class MonthlyDetailFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_monthly_list, container, false)
+        return inflater.inflate(R.layout.fragment_monthly_detail, container, false)
     }
 }

@@ -16,7 +16,7 @@ interface TransactionListDao {
     @Query("SELECT Sum(amount) FROM `transaction`")
     fun getAmount(): LiveData<Float>
 
-    @Query("SELECT Sum(amount) FROM `transaction` WHERE type = 0")
+    @Query("SELECT Sum(amount) FROM `transaction` WHERE type = 0 ")
     fun getSumCash(): LiveData<Float>
 
     @Query("SELECT Sum(amount) FROM `transaction` WHERE type = 1")
@@ -25,7 +25,8 @@ interface TransactionListDao {
     @Query("SELECT Sum(amount) FROM `transaction` WHERE type = 2")
     fun getSumDebit(): LiveData<Float>
 
-    @Query("SELECT * FROM `transaction` WHERE month=:month")
-    fun getTransactionByMonth(month:String):LiveData<List<Transaction>>
+
+    @Query("SELECT t1.monthYear, t1.month, t1.year, SUM(t1.amount) as sum,(SELECT t2.name FROM `transaction` as t2 WHERE t1.monthYear = t2.monthYear LIMIT 3) as expense FROM `transaction` as t1 GROUP BY monthYear ORDER BY year, month")
+    fun getTransactionMonth(): LiveData<List<MonthlyTransactions>>
 
 }

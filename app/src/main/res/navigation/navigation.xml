@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/transactionListFragment"
-        android:name="com.example.expanse.ui.TransactionListFragment"
+        android:name="com.example.expanse.ui.UpcomingTransactions.TransactionListFragment"
         android:label="fragment_transaction_list"
         tools:layout="@layout/fragment_transaction_list">
         <action
@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/transactionDetailFragment"
-        android:name="com.example.expanse.ui.TransactionDetailFragment"
+        android:name="com.example.expanse.ui.TransactionDetails.TransactionDetailFragment"
         android:label="fragment_transaction_detail"
         tools:layout="@layout/fragment_transaction_detail">
         <argument
@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.expanse.ui.LoginFragment"
+        android:name="com.example.expanse.ui.LoginAndSaved.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login">
         <action
@@ -49,7 +49,7 @@
     </fragment>
     <fragment
         android:id="@+id/savedProfileFragment"
-        android:name="com.example.expanse.ui.SavedProfileFragment"
+        android:name="com.example.expanse.ui.LoginAndSaved.SavedProfileFragment"
         android:label="fragment_saved_profile"
         tools:layout="@layout/fragment_saved_profile">
         <action
@@ -59,7 +59,7 @@
     </fragment>
     <fragment
         android:id="@+id/dayTransactionFragment"
-        android:name="com.example.expanse.ui.DayTransactionFragment"
+        android:name="com.example.expanse.ui.DayTransaction.DayTransactionFragment"
         android:label="fragment_day_transaction"
         tools:layout="@layout/fragment_day_transaction" >
         <action
@@ -70,5 +70,14 @@
         android:id="@+id/monthlyTransactionsFragment"
         android:name="com.example.expanse.ui.MonthlyTransactionsFragment"
         android:label="fragment_monthly_transactions"
-        tools:layout="@layout/fragment_monthly_transactions" />
+        tools:layout="@layout/fragment_monthly_transactions" >
+        <action
+            android:id="@+id/action_monthlyTransactionsFragment_to_monthlyDetailFragment"
+            app:destination="@id/monthlyDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/monthlyDetailFragment"
+        android:name="com.example.expanse.ui.MonthlyDetailFragment"
+        android:label="fragment_monthly_detail"
+        tools:layout="@layout/fragment_monthly_detail" />
 </navigation>

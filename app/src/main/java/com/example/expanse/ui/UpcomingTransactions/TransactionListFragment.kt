@@ -1,4 +1,4 @@
-package com.example.expanse.ui
+package com.example.expanse.ui.UpcomingTransactions
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.expanse.R
 import com.example.expanse.R.id.*
+import com.example.expanse.ui.TransactionAdapter
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
@@ -37,8 +38,8 @@ class TransactionListFragment : Fragment() {
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?,
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?,
     ): View? {
         return inflater.inflate(R.layout.fragment_transaction_list, container, false)
     }
@@ -51,21 +52,18 @@ class TransactionListFragment : Fragment() {
 /* when user clicks the transaction in recycler view then it will navigate to fragment with details of the transaction */
             adapter = TransactionAdapter {
                 findNavController().navigate(
-                        TransactionListFragmentDirections.actionTransactionListFragmentToTransactionDetailFragment(
-                                it,
-                        )
+                    TransactionListFragmentDirections.actionTransactionListFragmentToTransactionDetailFragment(
+                        it,
+                    )
                 )
             }
         }
 
 
-
-
-
 /* to update to net balace remaining after every addition in the recycler view  and always use this
  this method to update the shared preference rather then the method used in login fragment */
         val sharedPreferences: SharedPreferences =
-                this.requireActivity().getSharedPreferences("login", Context.MODE_PRIVATE)
+            this.requireActivity().getSharedPreferences("login", Context.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharedPreferences.edit()
         setNetBalance(sharedPreferences, editor)
 
@@ -99,7 +97,9 @@ class TransactionListFragment : Fragment() {
 
                 add_expanse -> {
                     findNavController().navigate(
-                            TransactionListFragmentDirections.actionTransactionListFragmentToTransactionDetailFragment(0)
+                        TransactionListFragmentDirections.actionTransactionListFragmentToTransactionDetailFragment(
+                            0
+                        )
                     )
                     true
                 }
@@ -145,10 +145,10 @@ class TransactionListFragment : Fragment() {
         // setup PieChart Entries Colors
         val pieDataSet = PieDataSet(pieEntries, "This is Pie Chart Label")
         pieDataSet.setColors(
-                resources.getColor(R.color.R),
-                resources.getColor(R.color.Java),
-                resources.getColor(R.color.CPP),
-                resources.getColor(R.color.Python)
+            resources.getColor(R.color.R),
+            resources.getColor(R.color.Java),
+            resources.getColor(R.color.CPP),
+            resources.getColor(R.color.Python)
         )
 
         // setup pie data set in piedata
@@ -175,8 +175,8 @@ class TransactionListFragment : Fragment() {
 
 
     private fun setNetBalance(
-            sharedPreferences: SharedPreferences,
-            editor: SharedPreferences.Editor
+        sharedPreferences: SharedPreferences,
+        editor: SharedPreferences.Editor
     ) {
 
 //        val sharedPreferences : SharedPreferences = this.requireActivity().getSharedPreferences("login", Context.MODE_PRIVATE)
