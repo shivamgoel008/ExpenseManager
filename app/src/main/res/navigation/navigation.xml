@@ -68,7 +68,7 @@
     </fragment>
     <fragment
         android:id="@+id/monthlyTransactionsFragment"
-        android:name="com.example.expanse.ui.MonthlyTransactionsFragment"
+        android:name="com.example.expanse.ui.MonthList.MonthlyTransactionsFragment"
         android:label="fragment_monthly_transactions"
         tools:layout="@layout/fragment_monthly_transactions" >
         <action
@@ -77,7 +77,7 @@
     </fragment>
     <fragment
         android:id="@+id/monthlyDetailFragment"
-        android:name="com.example.expanse.ui.MonthlyDetailFragment"
+        android:name="com.example.expanse.ui.MonthList.MonthlyDetailFragment"
         android:label="fragment_monthly_detail"
         tools:layout="@layout/fragment_monthly_detail" />
 </navigation>

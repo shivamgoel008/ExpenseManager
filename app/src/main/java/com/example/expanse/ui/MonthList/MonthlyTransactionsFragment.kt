@@ -1,4 +1,4 @@
-package com.example.expanse.ui
+package com.example.expanse.ui.MonthList
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.expanse.R
+import com.example.expanse.ui.MonthlyCardAdapter
 import kotlinx.android.synthetic.main.fragment_monthly_transactions.*
 
 

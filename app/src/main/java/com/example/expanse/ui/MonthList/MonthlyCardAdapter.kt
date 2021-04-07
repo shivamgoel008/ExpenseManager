@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.expanse.R
 import com.example.expanse.data.MonthlyTransactions
+import com.example.expanse.ui.MonthList.MonthAdapter
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.fragment_monthly_list.*
 
