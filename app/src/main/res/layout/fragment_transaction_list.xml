@@ -67,7 +67,7 @@
 
 
                     <TextView
-                        android:id="@+id/amount_text"
+                        android:id="@+id/amount_text2"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_marginStart="2dp"
@@ -81,15 +81,15 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/amount_remaining"
+                        android:id="@+id/amount_remaining2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="00"
                         android:textSize="32sp"
-                        app:layout_constraintEnd_toEndOf="@+id/amount_text"
-                        app:layout_constraintStart_toStartOf="@+id/amount_text"
-                        app:layout_constraintTop_toBottomOf="@+id/amount_text" />
+                        app:layout_constraintEnd_toEndOf="@+id/amount_text2"
+                        app:layout_constraintStart_toStartOf="@+id/amount_text2"
+                        app:layout_constraintTop_toBottomOf="@+id/amount_text2" />
 
                     <TextView
                         android:id="@+id/cash"
@@ -103,7 +103,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.022"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/amount_remaining" />
+                        app:layout_constraintTop_toBottomOf="@+id/amount_remaining2" />
 
                     <TextView
                         android:id="@+id/credit"
@@ -217,7 +217,7 @@
                     android:layout_height="match_parent">
 
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recyclerView"
+                        android:id="@+id/recyclerViewDetail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"

@@ -74,10 +74,18 @@
         <action
             android:id="@+id/action_monthlyTransactionsFragment_to_monthlyDetailFragment"
             app:destination="@id/monthlyDetailFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/monthlyDetailFragment"
         android:name="com.example.expanse.ui.MonthList.MonthlyDetailFragment"
         android:label="fragment_monthly_detail"
-        tools:layout="@layout/fragment_monthly_detail" />
+        tools:layout="@layout/fragment_monthly_detail" >
+        <argument
+            android:name="dateMonth"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_monthlyDetailFragment_to_transactionDetailFragment"
+            app:destination="@id/transactionDetailFragment" />
+    </fragment>
 </navigation>

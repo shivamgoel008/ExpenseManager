@@ -47,7 +47,7 @@ class TransactionListFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        with(recyclerView) {
+        with(recyclerViewDetail) {
             layoutManager = LinearLayoutManager(activity)
 /* when user clicks the transaction in recycler view then it will navigate to fragment with details of the transaction */
             adapter = TransactionAdapter {
@@ -113,7 +113,7 @@ class TransactionListFragment : Fragment() {
         }
 
         viewModel.transactions.observe(viewLifecycleOwner, Observer {
-            (recyclerView.adapter as TransactionAdapter).submitList(it)
+            (recyclerViewDetail.adapter as TransactionAdapter).submitList(it)
         })
 
 //        for net amount
@@ -130,7 +130,7 @@ class TransactionListFragment : Fragment() {
 
         // setup Pie entries
         val pieEntries = arrayListOf<PieEntry>()
-        var first: Float = amount_remaining.text.toString().toFloat()
+        var first: Float = amount_remaining2.text.toString().toFloat()
         var second: Float = netCash.text.toString().toFloat()
         var third: Float = netCredit.text.toString().toFloat()
         var forth: Float = netDebit.text.toString().toFloat()
@@ -184,7 +184,7 @@ class TransactionListFragment : Fragment() {
         var remainingAmount: Float = sharedPreferences.getString("Budget", "0")!!.toFloat()
 
         println("Net Amount $remainingAmount")
-        amount_remaining.text = remainingAmount.toString()
+        amount_remaining2.text = remainingAmount.toString()
         viewModel.netAmount.observe(viewLifecycleOwner, Observer {
 
 
@@ -196,12 +196,12 @@ class TransactionListFragment : Fragment() {
 //                remainingAmount.toString().also { amount_remaining.text = it }
 
                 editor.putString("Budget", remainingAmount.toString())
-                amount_remaining.text = remainingAmount.toString()
+                amount_remaining2.text = remainingAmount.toString()
                 setupPieChart()
                 if (remainingAmount >= 0)
-                    amount_remaining.setTextColor(Color.parseColor("#ADFF2F"))
+                    amount_remaining2.setTextColor(Color.parseColor("#ADFF2F"))
                 else if (remainingAmount < 0) {
-                    amount_remaining.setTextColor(Color.parseColor("#ff726f"))
+                    amount_remaining2.setTextColor(Color.parseColor("#ff726f"))
                 }
             }
         })

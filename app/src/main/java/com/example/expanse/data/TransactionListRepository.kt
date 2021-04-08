@@ -34,4 +34,14 @@ class TransactionListRepository(context: Application) {
     fun getTransactionMonth(): LiveData<List<MonthlyTransactions>>{
         return transactionListDao.getTransactionMonth()
     }
+
+    fun getTransactionMonth(monthYear: Long): LiveData<List<Transaction>> {
+        return transactionListDao.getTransactionMonth(monthYear)
+    }
+    fun getSumMonth(monthYear: Long): LiveData<Float>{
+        return transactionListDao.getSumMonth(monthYear)
+    }
+    fun getAmountMonth(date: String) : LiveData<List<Expense>>{
+        return transactionListDao.getAmountMonth(date)
+    }
 }

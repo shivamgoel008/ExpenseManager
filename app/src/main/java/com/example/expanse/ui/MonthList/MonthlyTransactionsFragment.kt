@@ -42,11 +42,11 @@ class MonthlyTransactionsFragment : Fragment() {
             layoutManager = LinearLayoutManager(activity)
             adapter = MonthlyCardAdapter({
                 findNavController().navigate(
-                    MonthlyTransactionsFragmentDirections.actionMonthlyTransactionsFragmentToMonthlyDetailFragment()
+                    MonthlyTransactionsFragmentDirections.actionMonthlyTransactionsFragmentToMonthlyDetailFragment(it),
                 )
             },requireContext())
-
         }
+
 
         viewModel.month.observe(viewLifecycleOwner, Observer{
             (month_recycler_view.adapter as MonthlyCardAdapter).submitList(it)
