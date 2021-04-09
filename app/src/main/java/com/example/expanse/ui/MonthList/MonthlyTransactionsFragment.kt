@@ -38,17 +38,19 @@ class MonthlyTransactionsFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         // Month Card List
-        with(month_recycler_view){
+        with(month_recycler_view) {
             layoutManager = LinearLayoutManager(activity)
             adapter = MonthlyCardAdapter({
                 findNavController().navigate(
-                    MonthlyTransactionsFragmentDirections.actionMonthlyTransactionsFragmentToMonthlyDetailFragment(it),
+                    MonthlyTransactionsFragmentDirections.actionMonthlyTransactionsFragmentToMonthlyDetailFragment(
+                        it
+                    ),
                 )
-            },requireContext())
+            }, requireContext())
         }
 
 
-        viewModel.month.observe(viewLifecycleOwner, Observer{
+        viewModel.month.observe(viewLifecycleOwner, Observer {
             (month_recycler_view.adapter as MonthlyCardAdapter).submitList(it)
         })
     }

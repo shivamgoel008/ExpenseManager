@@ -61,7 +61,7 @@
         android:id="@+id/dayTransactionFragment"
         android:name="com.example.expanse.ui.DayTransaction.DayTransactionFragment"
         android:label="fragment_day_transaction"
-        tools:layout="@layout/fragment_day_transaction" >
+        tools:layout="@layout/fragment_day_transaction">
         <action
             android:id="@+id/action_dayTransactionFragment_to_transactionDetailFragment"
             app:destination="@id/transactionDetailFragment" />
@@ -70,7 +70,7 @@
         android:id="@+id/monthlyTransactionsFragment"
         android:name="com.example.expanse.ui.MonthList.MonthlyTransactionsFragment"
         android:label="fragment_monthly_transactions"
-        tools:layout="@layout/fragment_monthly_transactions" >
+        tools:layout="@layout/fragment_monthly_transactions">
         <action
             android:id="@+id/action_monthlyTransactionsFragment_to_monthlyDetailFragment"
             app:destination="@id/monthlyDetailFragment" />
@@ -80,12 +80,21 @@
         android:id="@+id/monthlyDetailFragment"
         android:name="com.example.expanse.ui.MonthList.MonthlyDetailFragment"
         android:label="fragment_monthly_detail"
-        tools:layout="@layout/fragment_monthly_detail" >
+        tools:layout="@layout/fragment_monthly_detail">
         <argument
             android:name="dateMonth"
             app:argType="long" />
         <action
             android:id="@+id/action_monthlyDetailFragment_to_transactionDetailFragment"
             app:destination="@id/transactionDetailFragment" />
+        <action
+            android:id="@+id/action_monthlyDetailFragment_to_dayTransactionFragment"
+            app:destination="@id/dayTransactionFragment" />
+        <action
+            android:id="@+id/action_monthlyDetailFragment_to_savedProfileFragment"
+            app:destination="@id/savedProfileFragment" />
+        <action
+            android:id="@+id/action_monthlyDetailFragment_to_transactionListFragment2"
+            app:destination="@id/transactionListFragment" />
     </fragment>
 </navigation>

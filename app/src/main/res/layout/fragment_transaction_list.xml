@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/teal_light"
     tools:context=".ui.UpcomingTransactions.TransactionListFragment">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -55,6 +56,7 @@
                 android:layout_marginTop="102dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="72dp"
+                app:cardCornerRadius="13dp"
                 app:layout_constraintBottom_toTopOf="@+id/barrier"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -205,9 +207,10 @@
                 android:id="@+id/cardView2"
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
-                android:layout_marginStart="2dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="2dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="8dp"
+                app:cardCornerRadius="13dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/barrier">

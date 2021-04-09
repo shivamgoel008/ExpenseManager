@@ -3,8 +3,6 @@ package com.example.expanse.data
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.time.Month
-import java.time.Year
 
 enum class CategoryLevel {
     other
@@ -25,9 +23,9 @@ data class Transaction(
         val date: String,
         val fromDate: String,
         val toDate: String,
-        val monthYear:Long,
+        val monthYear: Long,
         val month: Int,
-        val year :Int,
+        val year: Int,
 
 
         @ColumnInfo(name = "detail")

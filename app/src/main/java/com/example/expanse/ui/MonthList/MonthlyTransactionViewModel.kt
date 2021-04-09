@@ -12,7 +12,6 @@ import com.example.expanse.data.TransactionListRepository
 class MonthlyTransactionViewModel(application: Application): AndroidViewModel(application) {
 
     private val repo: TransactionListRepository = TransactionListRepository(application)
-    private val _month = MutableLiveData<String>()
 
     val month: LiveData<List<MonthlyTransactions>>
         get() = repo.getTransactionMonth()
