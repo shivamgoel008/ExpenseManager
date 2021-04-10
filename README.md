@@ -10,7 +10,7 @@ day to day life expanses
 <img src="https://github.com/shivamgoel008/ExapnseManager/blob/master/Images/Login.jpg" width="300" height="600"> | <img src="https://github.com/shivamgoel008/ExapnseManager/blob/master/Images/saved%20profile.jpg" width="300" height="600">
 
 ## Upcomming Transactions Section
-<img src="hhttps://github.com/shivamgoel008/ExapnseManager/blob/master/Images/Upcomming.jpg" width="300" height="600">
+<img src="https://github.com/shivamgoel008/ExapnseManager/blob/master/Images/Upcomming.jpg" width="300" height="600">
 
 ## Add Transaction Section
 <img src="https://github.com/shivamgoel008/ExapnseManager/blob/master/Images/Add%20transaction.jpg" width="300" height="600">
