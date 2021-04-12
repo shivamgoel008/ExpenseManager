@@ -1,10 +1,12 @@
-# Expense Manager 
+# Expense Tracker
 
 This is Kotlin Based Mobile Application 
 
 An Android Application to maintain a record of our
 day to day life expanses
 
+## Firebase Login and Register Profile
+<img src="https://github.com/shivamgoel008/ExpenseTracker/blob/master/Images/1618213041018.jpg" width="300" height="600"> | <img src="https://github.com/shivamgoel008/ExpenseTracker/blob/master/Images/1618213041026.jpg" width="300" height="600">
 
 ## Login Profile and Saved Profile
 <img src="https://github.com/shivamgoel008/ExapnseManager/blob/master/Images/Login.jpg" width="300" height="600"> | <img src="https://github.com/shivamgoel008/ExapnseManager/blob/master/Images/saved%20profile.jpg" width="300" height="600">
