@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/firebaseLoginFragment">
 
     <fragment
         android:id="@+id/transactionListFragment"
@@ -96,5 +96,31 @@
         <action
             android:id="@+id/action_monthlyDetailFragment_to_transactionListFragment2"
             app:destination="@id/transactionListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/firebaseLoginFragment"
+        android:name="com.example.expanse.Login.FirebaseLoginFragment"
+        android:label="fragment_firebase_login"
+        tools:layout="@layout/fragment_firebase_login" >
+        <action
+            android:id="@+id/action_firebaseLoginFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment" />
+        <action
+            android:id="@+id/action_firebaseLoginFragment_to_firebaseRegisterFragment4"
+            app:destination="@id/firebaseRegisterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/firebaseRegisterFragment"
+        android:name="com.example.expanse.Login.FirebaseRegisterFragment"
+        android:label="fragment_firebase_register"
+        tools:layout="@layout/fragment_firebase_register" >
+        <action
+            android:id="@+id/action_firebaseRegisterFragment_to_firebaseLoginFragment2"
+            app:destination="@id/firebaseLoginFragment" />
+        <action
+            android:id="@+id/action_firebaseRegisterFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment" />
     </fragment>
 </navigation>
