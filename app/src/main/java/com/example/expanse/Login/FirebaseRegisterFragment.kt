@@ -2,15 +2,15 @@ package com.example.expanse.Login
 
 import android.os.Bundle
 import android.view.Gravity
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.expanse.R
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.fragment_firebase_login.*
+import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.fragment_firebase_register.*
 
 
@@ -22,6 +22,20 @@ class FirebaseRegisterFragment : Fragment() {
         super.onCreate(savedInstanceState)
         auth = FirebaseAuth.getInstance()
 
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        val currentUser = auth.currentUser
+        UpdateUI(currentUser)
+    }
+
+    private fun UpdateUI(currentUser: FirebaseUser?) {
+
+        if (currentUser != null) {
+            findNavController().navigate(FirebaseRegisterFragmentDirections.actionFirebaseRegisterFragmentToLoginFragment())
+        }
     }
 
     override fun onCreateView(
@@ -61,7 +75,7 @@ class FirebaseRegisterFragment : Fragment() {
                             "Authentication failed: ${task.exception?.message}",
                             Toast.LENGTH_LONG
                         )
-                        toast.setGravity(Gravity.CENTER_VERTICAL,0,0)
+                        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0)
                         toast.show()
                     }
                 }
@@ -72,13 +86,12 @@ class FirebaseRegisterFragment : Fragment() {
 
     private fun validateInput(email: String, pass: String): Boolean {
         var valid = true
-        if(email.isBlank()){
-            firebaseEmailRegister.error= "Please enter an email address"
+        if (email.isBlank()) {
+            firebaseEmailRegister.error = "Please enter an email address"
             valid = false
-        }
-        else if(pass.length<8){
+        } else if (pass.length < 8) {
             firebasePasswordRegister.error = "Password show 8 character or more"
-            valid=false
+            valid = false
         }
 
         return valid
