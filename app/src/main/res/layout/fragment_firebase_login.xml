@@ -8,7 +8,11 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -61,7 +65,7 @@
                 android:id="@+id/login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="68dp"
+                android:layout_marginTop="16dp"
                 android:background="@drawable/my_button"
                 android:text="Login"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -73,14 +77,17 @@
                 android:id="@+id/notRegistered"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
+                android:layout_marginTop="100dp"
 
+                android:layout_marginBottom="50dp"
                 android:background="@drawable/my_button"
                 android:text="NOT REGISTERED? CLICK HERE TO REGISTER"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.494"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/login" />
+                app:layout_constraintTop_toBottomOf="@+id/login"
+                app:layout_constraintVertical_bias="1.0" />
 
             <ProgressBar
                 android:id="@+id/progressBar"
@@ -94,6 +101,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+
+            <com.google.android.gms.common.SignInButton
+                android:id="@+id/sign_in_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@+id/notRegistered"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/login" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="150dp"
