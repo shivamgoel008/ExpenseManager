@@ -134,7 +134,7 @@ class FirebaseLoginFragment : Fragment() {
 
 //        for google signin
         sign_in_button.setOnClickListener {
-            progressBar.visibility=View.VISIBLE
+            progressBar.visibility = View.VISIBLE
             signIn()
         }
         login.setOnClickListener {
