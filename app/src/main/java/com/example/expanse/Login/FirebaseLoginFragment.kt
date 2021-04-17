@@ -1,6 +1,5 @@
 package com.example.expanse.Login
 
-import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -20,13 +19,13 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.fragment_firebase_login.*
-import kotlin.math.log
 
 
 class FirebaseLoginFragment : Fragment() {
 
     companion object {
-        private const val RC_SIGN_IN = 120
+        private const val TAG = "GoogleActivity"
+        private const val RC_SIGN_IN = 9001
     }
 
     private lateinit var auth: FirebaseAuth
@@ -41,14 +40,25 @@ class FirebaseLoginFragment : Fragment() {
             FirebaseLoginFragmentDirections.actionFirebaseLoginFragmentToLoginFragment()
         }
 
+
 //        configuring google sign in
-        val gso =
-            GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build()
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
 
         mGoogleSignInClient = GoogleSignIn.getClient(requireActivity(), gso)
+
+
     }
+
+    override fun onStart() {
+        super.onStart()
+
+        val currentUser = auth.currentUser
+        UpdateUI(currentUser)
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -72,6 +82,8 @@ class FirebaseLoginFragment : Fragment() {
             val exception = task.exception
             if (task.isSuccessful) {
                 try {
+//                    findNavController().navigate(FirebaseLoginFragmentDirections.actionFirebaseLoginFragmentToLoginFragment())
+
                     // Google Sign In was successful, authenticate with Firebase
                     val account = task.getResult(ApiException::class.java)!!
                     Log.d(TAG, "firebaseAuthWithGoogle:" + account.id)
@@ -80,7 +92,7 @@ class FirebaseLoginFragment : Fragment() {
                     // Google Sign In failed, update UI appropriately
                     Log.w(TAG, "Google sign in failed", e)
                 }
-            }else {
+            } else {
                 println("signInActivity ${exception.toString()}")
             }
         }
@@ -99,19 +111,12 @@ class FirebaseLoginFragment : Fragment() {
                 } else {
                     Toast.makeText(requireContext(), "error", Toast.LENGTH_SHORT).show()
                     // If sign in fails, display a message to the user.
-//                    Log.w(TAG, "signInWithCredential:failure", task.exception)
+                    Log.w(TAG, "signInWithCredential:failure", task.exception)
 //                    updateUI(null)
                 }
             }
     }
 
-    override fun onStart() {
-        super.onStart()
-
-        val currentUser = auth.currentUser
-        UpdateUI(currentUser)
-//        val account = GoogleSignIn.getLastSignedInAccount(requireActivity())
-    }
 
     private fun UpdateUI(currentUser: FirebaseUser?) {
         if (currentUser != null) {
@@ -129,6 +134,7 @@ class FirebaseLoginFragment : Fragment() {
 
 //        for google signin
         sign_in_button.setOnClickListener {
+            progressBar.visibility=View.VISIBLE
             signIn()
         }
         login.setOnClickListener {
