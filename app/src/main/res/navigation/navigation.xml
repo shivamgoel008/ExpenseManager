@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/firebaseLoginFragment">
+    app:startDestination="@id/firebaseGoogleLoginFragment">
 
     <fragment
         android:id="@+id/transactionListFragment"
@@ -101,7 +101,7 @@
         android:id="@+id/firebaseLoginFragment"
         android:name="com.example.expanse.Login.FirebaseLoginFragment"
         android:label="fragment_firebase_login"
-        tools:layout="@layout/fragment_firebase_login" >
+        tools:layout="@layout/fragment_firebase_login">
         <action
             android:id="@+id/action_firebaseLoginFragment_to_loginFragment"
             app:destination="@id/loginFragment"
@@ -114,7 +114,7 @@
         android:id="@+id/firebaseRegisterFragment"
         android:name="com.example.expanse.Login.FirebaseRegisterFragment"
         android:label="fragment_firebase_register"
-        tools:layout="@layout/fragment_firebase_register" >
+        tools:layout="@layout/fragment_firebase_register">
         <action
             android:id="@+id/action_firebaseRegisterFragment_to_firebaseLoginFragment2"
             app:destination="@id/firebaseLoginFragment" />
@@ -122,5 +122,20 @@
             android:id="@+id/action_firebaseRegisterFragment_to_loginFragment"
             app:destination="@id/loginFragment"
             app:popUpTo="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/firebaseGoogleLoginFragment"
+        android:name="com.example.expanse.Login.FirebaseGoogleLoginFragment"
+        android:label="fragment_firebase_google_login"
+        tools:layout="@layout/fragment_firebase_google_login">
+        <action
+            android:id="@+id/action_firebaseGoogleLoginFragment_to_firebaseLoginFragment"
+            app:destination="@id/firebaseLoginFragment" />
+        <action
+            android:id="@+id/action_firebaseGoogleLoginFragment_to_transactionListFragment"
+            app:destination="@id/transactionListFragment" />
+        <action
+            android:id="@+id/action_firebaseGoogleLoginFragment_to_loginFragment2"
+            app:destination="@id/loginFragment" />
     </fragment>
 </navigation>
