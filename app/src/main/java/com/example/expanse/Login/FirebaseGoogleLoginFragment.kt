@@ -34,6 +34,8 @@ class FirebaseGoogleLoginFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
+
         auth = FirebaseAuth.getInstance()
 
         if (this.auth.currentUser != null) {
@@ -123,6 +125,10 @@ class FirebaseGoogleLoginFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        Guest2.setOnClickListener{
+            findNavController().navigate(FirebaseGoogleLoginFragmentDirections.actionFirebaseGoogleLoginFragmentToLoginFragment2())
+        }
 
         buttonxyz.setOnClickListener {
             findNavController().navigate(FirebaseGoogleLoginFragmentDirections.actionFirebaseGoogleLoginFragmentToFirebaseLoginFragment())

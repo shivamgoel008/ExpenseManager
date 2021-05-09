@@ -91,13 +91,15 @@ class MonthlyDetailFragment : Fragment() {
 
         with(recycler) {
             layoutManager = LinearLayoutManager(activity)
-            adapter = TransactionAdapter {
-                findNavController().navigate(
-                    MonthlyDetailFragmentDirections.actionMonthlyDetailFragmentToTransactionDetailFragment(
-                        it
+            adapter = TransactionAdapter(
+                {
+                    findNavController().navigate(
+                        MonthlyDetailFragmentDirections.actionMonthlyDetailFragmentToTransactionDetailFragment(
+                            it
+                        )
                     )
-                )
-            }
+                },
+            )
         }
 
         viewModel.transactionMonth.observe(viewLifecycleOwner, Observer {

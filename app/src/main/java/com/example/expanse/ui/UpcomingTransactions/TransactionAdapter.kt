@@ -1,5 +1,7 @@
 package com.example.expanse.ui
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
@@ -13,8 +15,13 @@ import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.list_item.view.*
 
 
+
+
+
 class TransactionAdapter(private val listener: (Long) -> Unit) :
     ListAdapter<Transaction, TransactionAdapter.ViewHolder>(DiffCallback()) {
+
+    lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -39,6 +46,7 @@ class TransactionAdapter(private val listener: (Long) -> Unit) :
 
         fun bind(transaction: Transaction) {
             with(transaction) {
+
                 itemView.transaction_name.text = transaction.name
 //                itemView.transaction_date.text = "20/10/2020"
 
@@ -50,9 +58,12 @@ class TransactionAdapter(private val listener: (Long) -> Unit) :
                     itemView.transaction_mode.text = "Credit Card"
                 }
 
+
+
                 itemView.transaction_amount.text = transaction.amount.toString()
 
                 itemView.transaction_date.text = transaction.date
+
 
 //                itemView.plus_minus.text= transaction.plusMinus.toString()
 

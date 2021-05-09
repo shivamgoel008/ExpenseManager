@@ -168,7 +168,6 @@ class TransactionDetailFragment : Fragment() {
 //            val value = (credit?.toInt() ?: 0) - amount.toInt()
 //
 //            sharedPreferences.edit().putString("Budget", value.toString()).apply()
-
         val transaction = Transaction(
             viewModel.transactionId.value!!,
             transactionName,
@@ -261,6 +260,9 @@ class TransactionDetailFragment : Fragment() {
 
     }
 
+
+
+//     yyyy-mm-dd
 
     //    for creating dialogue date picker
     fun EditText.transformIntoDatePicker(context: Context, format: String, maxDate: Date? = null) {

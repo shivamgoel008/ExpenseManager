@@ -5,7 +5,6 @@ import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
 import android.view.*
-import android.widget.FrameLayout
 import androidx.appcompat.widget.Toolbar
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.drawerlayout.widget.DrawerLayout
@@ -54,13 +53,15 @@ class TransactionListFragment : Fragment() {
         with(recyclerViewDetail) {
             layoutManager = LinearLayoutManager(activity)
 /* when user clicks the transaction in recycler view then it will navigate to fragment with details of the transaction */
-            adapter = TransactionAdapter {
-                findNavController().navigate(
-                    TransactionListFragmentDirections.actionTransactionListFragmentToTransactionDetailFragment(
-                        it,
+            adapter = TransactionAdapter(
+                {
+                    findNavController().navigate(
+                        TransactionListFragmentDirections.actionTransactionListFragmentToTransactionDetailFragment(
+                            it,
+                        )
                     )
-                )
-            }
+                },
+            )
         }
 
 

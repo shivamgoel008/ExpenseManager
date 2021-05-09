@@ -34,12 +34,22 @@
         android:id="@+id/buttonxyz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="48dp"
         android:backgroundTint="@color/white"
         android:text="Sign In By Email"
         android:textColor="@color/grey"
         app:layout_constraintEnd_toEndOf="@+id/sign_in_button"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.312"
         app:layout_constraintStart_toStartOf="@+id/sign_in_button"
         app:layout_constraintTop_toBottomOf="@+id/sign_in_button" />
+
+    <Button
+        android:id="@+id/Guest2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LogIn As Guest"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonxyz" />
 </androidx.constraintlayout.widget.ConstraintLayout>

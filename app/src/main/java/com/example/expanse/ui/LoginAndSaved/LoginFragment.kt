@@ -83,7 +83,7 @@ class LoginFragment : Fragment() {
             val budget = PersonBudget.editText?.text.toString()
             val income = PersonIncome.editText?.text.toString()
 
-            saveCredentials(name, budget, income);
+            saveCredentials(name, budget, income)
 
             println("name = $name budget = $budget")
             findNavController().navigate(

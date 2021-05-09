@@ -59,6 +59,11 @@ class FirebaseLoginFragment : Fragment() {
             findNavController().navigate(FirebaseLoginFragmentDirections.actionFirebaseLoginFragmentToFirebaseRegisterFragment4())
         }
 
+        Guest.setOnClickListener{
+            findNavController().navigate(FirebaseLoginFragmentDirections.actionFirebaseLoginFragmentToLoginFragment())
+        }
+
+
 
         login.setOnClickListener {
             firebaseEmailLogin.error = null
