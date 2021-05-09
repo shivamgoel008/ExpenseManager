@@ -6,7 +6,8 @@ An Android Application to maintain a record of our
 day to day life expanses
 
 ## Firebase Login and Register Profile
-<img src="https://github.com/shivamgoel008/ExpenseTracker/blob/master/Images/1618213041018.jpg" width="200" height="400"> | <img src="https://github.com/shivamgoel008/ExpenseTracker/blob/master/Images/1618213041026.jpg" width="200" height="400">
+<img src="https://github.com/shivamgoel008/ExpenseTracker/blob/master/Images/1.jpg" width="200" height="400"> |
+<img src="https://github.com/shivamgoel008/ExpenseTracker/blob/master/Images/2.jpg" width="200" height="400"> | <img src="https://github.com/shivamgoel008/ExpenseTracker/blob/master/Images/3.jpg" width="200" height="400">
 
 ## Login Profile and Saved Profile
 <img src="https://github.com/shivamgoel008/ExapnseManager/blob/master/Images/Login.jpg" width="200" height="400"> | <img src="https://github.com/shivamgoel008/ExapnseManager/blob/master/Images/saved%20profile.jpg" width="200" height="400">
@@ -24,8 +25,8 @@ day to day life expanses
 <img src="https://github.com/shivamgoel008/ExapnseManager/blob/master/Images/Monthly%20Card.jpg" width="200" height="400"> | <img src="https://github.com/shivamgoel008/ExapnseManager/blob/master/Images/Monthly%20Profile.jpg" width="200" height="400">
 
 # Features
+- [x] Login screen with Gmail User sign in and register using firebase and google auth.
 - [x] A Login screen for User email sign in and register using firebase.
-- [x] Login screen with Gmail User sign in and register using firebase and google authentication.
 - [x] A User detail screen to enter details such as name and budget.
 - [x] Home Screen displays net balance and net cash, credit, debit amount.
 - [x] Home Screen displays the pie chart of various transaction method.
