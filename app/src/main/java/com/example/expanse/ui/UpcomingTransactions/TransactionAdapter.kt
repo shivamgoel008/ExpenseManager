@@ -12,16 +12,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.expanse.R
 import com.example.expanse.data.Transaction
 import kotlinx.android.extensions.LayoutContainer
+import kotlinx.android.synthetic.main.list_item.*
 import kotlinx.android.synthetic.main.list_item.view.*
-
-
-
 
 
 class TransactionAdapter(private val listener: (Long) -> Unit) :
     ListAdapter<Transaction, TransactionAdapter.ViewHolder>(DiffCallback()) {
-
-    lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -46,11 +42,13 @@ class TransactionAdapter(private val listener: (Long) -> Unit) :
 
         fun bind(transaction: Transaction) {
             with(transaction) {
-
-                itemView.transaction_name.text = transaction.name
+//                transaction_date.text=transaction.name
+                transaction_name.text = transaction.name
 //                itemView.transaction_date.text = "20/10/2020"
 
                 if (transaction.type.equals(0)) {
+
+
                     itemView.transaction_mode.text = "Cash"
                 } else if (transaction.type.equals(1)) {
                     itemView.transaction_mode.text = "Debit Card"

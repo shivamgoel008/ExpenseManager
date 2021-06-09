@@ -5,9 +5,6 @@ import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
 import android.view.*
-import androidx.appcompat.widget.Toolbar
-import androidx.coordinatorlayout.widget.CoordinatorLayout
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -20,7 +17,6 @@ import com.example.expanse.ui.TransactionAdapter
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
-import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.fragment_transaction_list.*
 
 
@@ -56,9 +52,7 @@ class TransactionListFragment : Fragment() {
             adapter = TransactionAdapter(
                 {
                     findNavController().navigate(
-                        TransactionListFragmentDirections.actionTransactionListFragmentToTransactionDetailFragment(
-                            it,
-                        )
+                        TransactionListFragmentDirections.actionTransactionListFragmentToTransactionDetailFragment(it)
                     )
                 },
             )
@@ -93,7 +87,7 @@ class TransactionListFragment : Fragment() {
             }
         }
 
-        bottomNavigationView.setOnNavigationItemSelectedListener { it ->
+        bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
 
                 daily -> {

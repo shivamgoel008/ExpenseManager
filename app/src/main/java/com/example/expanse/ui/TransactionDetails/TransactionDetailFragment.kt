@@ -86,7 +86,6 @@ class TransactionDetailFragment : Fragment() {
         }
 
         val id = TransactionDetailFragmentArgs.fromBundle(requireArguments()).id
-//        @Query("SELECT * FROM `transaction` where id= id")
         viewModel.setTransactionId(id)
 
         // disabling the feilds
