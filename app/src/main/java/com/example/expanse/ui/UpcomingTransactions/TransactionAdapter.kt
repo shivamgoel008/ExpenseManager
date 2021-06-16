@@ -16,8 +16,7 @@ import kotlinx.android.synthetic.main.list_item.*
 import kotlinx.android.synthetic.main.list_item.view.*
 
 
-class TransactionAdapter(private val listener: (Long) -> Unit) :
-    ListAdapter<Transaction, TransactionAdapter.ViewHolder>(DiffCallback()) {
+class TransactionAdapter(private val listener: (Long) -> Unit) : ListAdapter<Transaction, TransactionAdapter.ViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -80,7 +79,6 @@ class TransactionAdapter(private val listener: (Long) -> Unit) :
         }
     }
 }
-
 class DiffCallback : DiffUtil.ItemCallback<Transaction>() {
     override fun areItemsTheSame(oldItem: Transaction, newItem: Transaction): Boolean {
         return oldItem.id == newItem.id

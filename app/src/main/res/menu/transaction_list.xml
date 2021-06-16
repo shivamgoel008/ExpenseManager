@@ -16,4 +16,11 @@
         android:icon="@drawable/ic_baseline_calendar_today_24"
         android:title="calender Transaction"
         app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/news_click"
+        android:contentDescription="You can view calender "
+        android:icon="@drawable/ic_baseline_tv_24"
+        android:title="calender Transaction"
+        app:showAsAction="ifRoom" />
 </menu>

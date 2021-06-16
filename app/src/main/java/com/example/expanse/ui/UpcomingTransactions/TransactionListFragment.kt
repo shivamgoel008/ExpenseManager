@@ -83,6 +83,11 @@ class TransactionListFragment : Fragment() {
                     findNavController().navigate(TransactionListFragmentDirections.actionTransactionListFragmentToDayTransactionFragment())
                     true
                 }
+
+                news_click->{
+                    findNavController().navigate(TransactionListFragmentDirections.actionTransactionListFragmentToNewsFragment())
+                    true
+                }
                 else -> false
             }
         }
