@@ -2,6 +2,7 @@ package com.example.expanse.news;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -13,7 +14,6 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -43,7 +43,6 @@ import retrofit2.Response;
 public class NewsFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
     public NewsFragment() {
-        // Required empty public constructor
     }
 
     public static final String API_KEY= BuildConfig.MY_API_KEY;
@@ -78,7 +77,7 @@ public class NewsFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
         swipeRefreshLayout= view.findViewById(R.id.news_refresh);
         swipeRefreshLayout.setOnRefreshListener(this);
-        swipeRefreshLayout.setColorSchemeColors(R.color.colorAccent);
+//        swipeRefreshLayout.setColorSchemeColors(R.color.colorAccent);
 
         recyclerView = view.findViewById(R.id.news_recyclerView);
         layoutManager=new LinearLayoutManager(requireActivity());
@@ -126,7 +125,6 @@ public class NewsFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
             @Override
             public void onFailure(Call<News> call, Throwable t) {
-
             }
         });
     }
@@ -181,6 +179,27 @@ public class NewsFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                 }
         );
     }
+
+
+    private void initListener(){
+        adapter.setOnItemClickListener(new Adapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+//                Intent intent = new Intent(MainActivity.this, NewsDetailActivity.class);
+//
+//                Article article = articles.get(position);
+//                intent.putExtra("url",article.getUrl());
+//                intent.putExtra("title", article.getTitle());
+//                intent.putExtra("img",article.getUrlToImage());
+//                intent.putExtra("date",article.getPublishedAt());
+//                intent.putExtra("source",article.getSource().getName());
+//                intent.putExtra("author",article.getAuthor());
+//
+//                startActivity(intent);
+            }
+        });
+    }
+
 
 
 

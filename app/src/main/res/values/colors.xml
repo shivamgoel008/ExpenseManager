@@ -27,4 +27,9 @@
 
     <color name="FavRed">#ff726f</color>
     <color name="FavGreen">#ADFF2F</color>
+
+
+    <color name="colorBackground">#f9f9fa</color>
+    <color name="colorTextSubtitle">#4e4e4e</color>
+    <color name="colorTextTitle">#262626</color>
 </resources>

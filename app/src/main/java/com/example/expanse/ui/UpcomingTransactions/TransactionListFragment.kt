@@ -26,6 +26,7 @@ class TransactionListFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
         setHasOptionsMenu(true)
 
         viewModel = ViewModelProviders.of(this).get(TransactionListViewModel::class.java)

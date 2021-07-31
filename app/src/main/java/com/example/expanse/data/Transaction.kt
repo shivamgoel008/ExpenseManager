@@ -33,5 +33,4 @@ data class Transaction(
         val type: Int,
         val comment: String,
         val plusMinus: Int
-
 )

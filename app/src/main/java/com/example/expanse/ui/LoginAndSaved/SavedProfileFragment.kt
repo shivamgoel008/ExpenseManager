@@ -23,13 +23,10 @@ class SavedProfileFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_saved_profile, container, false)
-
-
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
 
 //         putting the values login in the saved details
         val sharedPreferences: SharedPreferences =
